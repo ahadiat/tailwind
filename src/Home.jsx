@@ -2,7 +2,7 @@ import React from 'react';
 import Hero from './Hero.jsx';
 import Lay from './Part2/Lay.jsx';
 
-const home = () => {
+const Home = () => {
   return (
     <>
           <Hero />
@@ -13,4 +13,4 @@ const home = () => {
   );
 }
 
-export default home;
+export default Home;
