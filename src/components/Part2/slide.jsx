@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../../public/index.css';
+
 import Padrom from '/Foodm.png'
 
 
@@ -56,7 +56,7 @@ const App = () => {
     <Slider {...settings}>
       {AfroStyles.map((item) => (
         <div key={item.id}>
-          <div className="img-body">
+          <div className="">
             <img src={item.gam} alt={item.link} />
           </div>
           <div>

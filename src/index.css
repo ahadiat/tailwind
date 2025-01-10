@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
     /* Add any global styles here */
     h1 {
@@ -11,6 +12,7 @@
       @apply text-gray-700; /* Example for paragraph styling */
     }
     /* Add more global styles as needed */
+
 
    
 

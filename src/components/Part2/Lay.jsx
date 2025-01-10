@@ -8,7 +8,7 @@ const Lay = () => {
   
 
   return (
-    <div className='w-full h-screen bg-white p-[50px]'>
+    <div className='w-full h-screen bg-white'>
         <div className='relative font-cookie text-orange-600 text-center px-3 text-[44px] flex flex-col items-center'>
           <div className=''> Your Go To Cake Shop & Cafe in</div>
           <div className='absolute top-10'>Malaysia</div>         

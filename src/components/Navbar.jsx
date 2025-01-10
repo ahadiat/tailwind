@@ -54,8 +54,8 @@ export const Mini = () => {
   }
   
   return (
-   <div className='w-full h-screen left-0 fixed bg-black bg-opacity-35'>
-    <div className='w-full h-8 left-0 -top-8 absolute bg-black bg-opacity-35' ></div>
+   <div className='w-full h-screen left-0 z-10 fixed bg-black bg-opacity-35'>
+    <div className='w-full h-10 left-0 -top-10 absolute bg-black bg-opacity-35' ></div>
      <div className= {!nav ? 'bg-black absolute lg:hidden left-5 right-5 top-1 transform text-white p-11 rounded shadow-2xl ease-in-out duration-500'  : 'fixed left-[-100%]'}>
           <div className='flex justify-between items-center'>
             <div className='flex'>
@@ -141,7 +141,7 @@ const Navbar = () => {
 
   return (
     
-   <div className='lg:bg-gray-800 fixed bg-white h-20 shadow-2xl lg:text-whites z-10 top-0 w-full flex rounded-xl'>
+   <div className='lg:bg-gray-800 bg-white h-20 shadow-2xl lg:text-whites top-0 w-full flex rounded-xl'>
    
      <nav className="relative">
        
@@ -155,7 +155,7 @@ const Navbar = () => {
 
             {/* Show sub-items on hover if they exist */}
             {item.subItems && (
-              <ul className="hidden hover:block bg-gray-800 mt-2 absolute  text-white rounded shadow-lg group-hover:block">
+              <ul className="hidden hover:block bg-gray-800 mt-2 absolute z-10 text-white rounded shadow-lg group-hover:block">
                 {item.subItems.map((subItem, subIndex) => (
                   <li key={subIndex}>
                     <a
