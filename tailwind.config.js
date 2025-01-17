@@ -5,6 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      sm: '375px',
+      md: '425px',
+      lg: '625px',
+      kl: '855px',
+      xl: '880px',
+      op: '1200px',
+    },
     extend: {
       keyframes: {
         spin: {
@@ -25,6 +33,8 @@ export default {
       fontFamily: {
         cookie: ['"Cookie"', 'serif'],
       },
+
+      
     },
     },
   
