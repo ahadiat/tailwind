@@ -1,75 +1,122 @@
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useRef } from 'react'
+import Slider from 'react-slick';
+import Project from './Project';
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import styled from 'styled-components';
+import Padro from '../../../public/Foodm.png'
 
-import Padrom from '/Foodm.png'
-
-
-const AfroStyles = [
+let data = [
     {
-      id: 'mat',
-      gam: [Padrom],
-      tajuk: '“Where Tradition Meets Taste”.',
-      para: 'Spend & get rewarded with every purchase at SR GO! or Secret Recipe Cake Shop & Cafe',
-      link: '/'
+        img :  [Padro],
+        disc : "Lorem ipsum dolor sit amet consectetur adipisicing elit.Eveniet iure rerum obcaecati et laborum earum!"
     },
     {
-      id: 'mua',
-      gam: {Padrom},
-      tajuk: '“Tiada lagi di dunia ini”.',
-      para: 'Spend & get rewarded with every purchase at SR GO! or Secret Recipe Cake Shop & Cafe',
-      link: '/'
+        img : [Padro],
+        disc : "Lorem ipsum dolor sit amet consectetur adipisicing elit.Eveniet iure rerum obcaecati et laborum earum!"
     },
     {
-      id: 'miga',
-      gam: 'https://media.istockphoto.com/id/1471844577/photo/delicious-double-burger-with-french-fries-and-vegetables-on-wooden-cutting-board.webp?a=1&b=1&s=612x612&w=0&k=20&c=AQf89aZeq5GYS7owfkbQSasswh1_AnrQdPsXsqcmgVs=',
-      tajuk: '“percaya pada mu bagai bulan”.',
-      para: 'Spend & get rewarded with every purchase at SR GO! or Secret Recipe Cake Shop & Cafe',
-      link: '/'
+        img : [Padro],
+        disc : "Lorem ipsum dolor sit amet consectetur adipisicing elit.Eveniet iure rerum obcaecati et laborum earum!"
     },
     {
-      id: 'mempat',
-      gam: 'https://media.istockphoto.com/id/1320254982/photo/rempeyek-kacang-or-peyek-kacang-is-one-of-type-traditional-snack-from-java-indonesia-rempeyek.jpg?s=612x612&w=0&k=20&c=tpug9KTtoNFnLgwiTm43Y6cdZXvg-918HlefhRU-5rg=',
-      tajuk: '“ada teratak dihujung kampung”.',
-      para: 'Spend & get rewarded with every purchase at SR GO! or Secret Recipe Cake Shop & Cafe',
-      link: '/'
+        img : [Padro] ,
+        disc : "Lorem ipsum dolor sit amet consectetur adipisicing elit.Eveniet iure rerum obcaecati et laborum earum!"
     },
-  ];
+    {
+        img : [Padro],
+        disc : "Lorem ipsum dolor sit amet consectetur adipisicing elit.Eveniet iure rerum obcaecati et laborum earum!"
+    }
+];
 
-const App = () => {
-  const settings = {
-    dots: true,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 2,
+var settings = {
+    className: "center",
+    centerMode: true,
+    dots: false,
     infinite: true,
-    autoplay: true,
-    autoplaySpeed: 1000,
-    dots: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    arrows : false,
+    responsive: [
+      {
+        breakpoint: 990,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+          centerMode : false
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+          centerMode : false
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode : false
+        }
+      }
+    ]
   };
-
+const SliderComp = () => {
+  const arrowRef = useRef(null);
+    let sliderProject = "";
+    sliderProject = data.map((item, i) => (
+        <Project item = {item} key={i}/>
+    ))
   return (
-    <div className="w-full h-auto">
-  <h1 className="header">Afro Styles Fashion Store</h1>
-  <div className="container">
-    <Slider {...settings}>
-      {AfroStyles.map((item) => (
-        <div key={item.id}>
-          <div className="">
-            <img src={item.gam} alt={item.link} />
-          </div>
-          <div>
-            <h2>{item.title}</h2>
-            <p>{item.description}</p>
-          </div>
-        </div>
-      ))}
-    </Slider>
-  </div>
-</div>
-  );
-};
+   
+    <Container>
+      <Slider ref={arrowRef} {...settings}>
+      {sliderProject}
+      </Slider>
+      <Buttons>
+        <button 
+        onClick={() => arrowRef.current.slickPrev()}
+        className='back text-3xl p-4'><IoIosArrowForward/></button>
+        <button 
+        onClick={() => arrowRef.current.slickNext()}
+        className='next text-3xl p-4'><IoIosArrowBack/></button>
+      </Buttons>
+    </Container>
+  )
+}
 
-export default App;
+export default SliderComp;
+
+const Container = styled.div`
+  position: relative;
+
+
+`
+
+const Buttons = styled.div`
+  button{
+    width: 4rem;
+    height: 4rem;
+    background-color:#d9a18d;
+    border-radius: 50%;
   
+    cursor: pointer;
+    color: #e35420;
+    border: none;
+    position: absolute;
+    top: 45%;
+    right: 1rem;
+  }
+
+  .back{
+    left: 1rem;
+  }
+  
+`
