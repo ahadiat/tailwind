@@ -4,6 +4,9 @@ import Projects from "./components/Part2/Projects";
 import Navbar from './components/Navbar.jsx';
 import styled from "styled-components";
 import AOS from 'aos';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 
 const Home = () => {
 
