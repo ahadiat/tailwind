@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect} from 'react';
 import Slider from "react-slick";
 import "aos/dist/aos.css";
 import AOS from 'aos'; // Ensure AOS is imported
@@ -31,7 +31,7 @@ const ImageList = [
 ];
 
 const Hero = () => {
-  const [activeId, setActiveId] = useState(ImageList[0].id); // Track active slide ID
+
 
   var settings = {
     dots: false,
@@ -44,12 +44,8 @@ const Hero = () => {
     cssEase: "ease-in-out",
     pauseOnHover: true,
     pauseOnFocus: true,
-    className: "slider variable-width",
+   
 
-    afterChange: (current) => {
-      setActiveId(ImageList[current].id); // Update activeId after slide changes
-      AOS.refresh(); // Refresh AOS animations whenever the slide changes
-    },
   };
 
   useEffect(() => {
