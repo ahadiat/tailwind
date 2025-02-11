@@ -1,7 +1,11 @@
 import React from 'react';
-import Hero from './components/Hero/Hero.jsx';
-import Projects from "./components/Part2/Projects";
-import Navbar from './components/Navbar.jsx';
+import Hero from './Hero/Hero1/Hero.jsx'
+import Projects from "./Hero/Part2/Projects.jsx";
+
+import Ourfod from './Hero/Ourfod.jsx';
+import Delivery from './Hero/Delivery.jsx';
+import ContactUs from './components/ContactUs.jsx';
+import Connect from './Hero/Connect.jsx'
 import styled from "styled-components";
 import AOS from 'aos';
 import "slick-carousel/slick/slick.css"; 
@@ -9,7 +13,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 const Home = () => {
+  const [orderPopup, setOrderPopup] = React.useState(false);
 
+ 
   React.useEffect(() => {
     AOS.init({
       offset: 100,
@@ -22,11 +28,16 @@ const Home = () => {
 
   return (
     <div className='w-screen h-screen overflow-x-hidden'>
-<Navbar />
+
           <Hero  />
           <LightColor>
         <Projects />
       </LightColor>
+      <Ourfod />
+      <Delivery />
+      <Connect />
+      <ContactUs />
+    
         
     </div>
   

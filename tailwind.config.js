@@ -31,8 +31,13 @@ export default {
       },
 
       fontFamily: {
-        cookie: ['"Cookie"', 'serif'],
+        'cookie': ['"Cookie"', 'serif'],
+        'lily-script' : ['"Lily Script One"', 'serif'], // Custom font added here
       },
+
+     
+       
+    
 
       
     },
