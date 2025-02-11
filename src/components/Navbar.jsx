@@ -7,34 +7,45 @@ import { TiSocialYoutube } from "react-icons/ti";
 import { SlSocialInstagram } from "react-icons/sl";
 import { FaTiktok } from "react-icons/fa";
 import { PiTrademarkRegisteredLight } from "react-icons/pi";
+import { Link } from 'react-router-dom';
+import { Fade } from 'react-awesome-reveal';
+
 
 
 const navbarItems = [
-  { title: "Home", link: "/home" },
-  { title: "About Us", link: "/about" },
+ 
+  { 
+    id: 1,
+    title: "Our Story",
+    link: "/Utama",
+  },
   
   {
-    title: "Products",
-    link: "/products",},
+    id: 2,
+    title: "Products & Foods",
+    link: "/products",
+  },
 
 
 
-  { title: "Company", link: "/company",
-  subItems: [
-    { title: "Our Company", link: "/products/burger" },
-    { title: "News & Promotions", link: "/products/hotdog" },
-    { title: "Associate", link: "/products/hotdog" },
-    { title: "Blogs", link: "/products/hotdog" }
-  ]
+  { 
+    id: 3,
+    title: "News & Promotions",
+    link: "/company",
  },
- { title: "Service", link: "/company",
- subItems: [
-   { title: "FAQ", link: "/products/burger" },
-   { title: "Terms of Use", link: "/products/hotdog" },
-   { title: "Contact Us", link: "/products/hotdog" }
-  
- ]
+
+ { 
+    id: 4,
+    title: "Contact",
+    link: "/company",
+},
+
+{ 
+  id: 5,
+  title: "FAQ",
+  link: "/company",
 }
+
 ];
 
 const icons = [
@@ -56,15 +67,17 @@ export const Mini = () => {
   return (
     
     <div className='relative'>
-        <div className='w-[800px] lg:w-[880px] h-screen lg:-left-[450px]   z-10 -left-[350px] -top-10 absolute bg-black bg-opacity-35' ></div>
+        <div className='w-[800px] lg:w-[980px] h-screen lg:-left-[850px]  -left-[550px] -top-10 absolute bg-black bg-opacity-35' ></div>
    <div className='w-full h-screen left-0 z-10 overflow-scroll fixed '>
-  
+  <Fade>
      <div  data-aos="fade-up"
                   data-aos-duration="500"
-                  data-aos-delay="300"className= {!nav ? 'bg-black absolute xl:hidden left-5 right-5 top-1 transform text-white p-11 rounded shadow-2xl ease-in-out duration-500'  : 'fixed left-[-100%]'}>
+                  data-aos-delay="300"className= {!nav ? 'bg-black rounded-3xl absolute xl:hidden left-5 right-5 top-1 transform text-white p-11 rounded shadow-2xl ease-in-out duration-500'  : 'fixed left-[-100%]'}>
           <div className='flex justify-between items-center'>
             <div className='flex'>
-            <h1 className='cursor-pointer text-2xl text-orange-400'>Aqemny</h1>
+            <Link to="/" className='cursor-pointer'>
+                <h1 className='text-2xl text-orange-400'>Aqemny</h1>
+            </Link>
             <PiTrademarkRegisteredLight className='text-orange-400'/>
             </div>
          
@@ -108,6 +121,7 @@ export const Mini = () => {
         </div>
      
         </div>
+        </Fade>
         
    </div>
    </div>
@@ -153,14 +167,16 @@ const Navbar = () => {
              
             
 
-     <nav className="relative hidden mx-auto xl:block">
+     <nav className="relative hidden mx-7 xl:mx-4 op:mx-[200px] xl:block">
     
-        <div className='flex items-center'>
-        <h1 className='text-orange-700 text-3xl pr-8 pl-2 font-cookie'>Aqemny</h1>
-        <ul className="flex ">
+        <div className='grid grid-cols-12'>
+        <Link to="/" className='text-orange-700 text-4xl pr-8 pl-2 font-cookie col-span-2 justify-self-start py-3'>
+                Aqemny
+            </Link>
+        <ul className="flex col-span-8 ">
         {navbarItems.map((item, index) => (
-          <li key={index} className="relative items-center hover:scale-125 duration-200 group h-16  w-auto pt-[20px] ">
-            <a href={item.link} className="px-4 py-  text-orange-700 hover:text-black ">
+          <li key={index} className="relative py-5 px-3 hover:scale-125 duration-200 group h-16  w-auto ">
+            <a href={item.link} className=" text-orange-700 hover:text-black ">
               {item.title}
             </a>
 
@@ -184,9 +200,12 @@ const Navbar = () => {
         ))}
         
       </ul>
-      <div className='op:ml-[370px] ml-[45px] '></div>
+     
+      <div className='col-span-2 justify-self-end py-2'>
       <button className='w-24 h-10 hover:bg-orange-400 hover:text-white  bg-gradient-to-r border-orange-600 border-2 mx-1 text-orange-500 bg-orange-100 rounded'>Sign In</button>
       <button className='w-28 h-12 text-white hover:scale-125 duration-200  bg-gradient-to-r border-2 border-black bg-orange-700 rounded-full mx-2'>Order Now</button>
+      </div>
+     
      
      
                 
@@ -195,13 +214,14 @@ const Navbar = () => {
      
       
     </nav>
-    <div className='relative grid text-orange-800 bg-white items-center grid-cols-2 px-16  w-full xl:hidden'>
+    <div className='relative  text-orange-700 bg-white items-center px-16 flex justify-between w-full xl:hidden'>
     <MdMenu id='logo'  className={`text-3xl hidden cursor-pointer ${isBlue ? 'animate-rotate-slow' : ''}`} // Tailwind classes for colors
                 onClick={handleLogoClick} />
-
-<h1 className='cursor-pointer font-cookie text-3xl justify-self-start'>Aqemny</h1>
+ <Link to="/" className='cursor-pointer'>
+                <h1 className='font-cookie text-3xl '>Aqemny</h1>
+            </Link>
 <div onClick={handleClick} >
-    { !showMini ? <MdMenu id='logo'  className={`text-xl font-extrabold  justify-self-end  cursor-pointer ${isBlue ? 'animate-rotate-slow' : ''}`} // Tailwind classes for colors     
+    { !showMini ? <MdMenu id='logo'  className={`text-xl font-extrabold   cursor-pointer ${isBlue ? 'animate-rotate-slow' : ''}`} // Tailwind classes for colors     
     /> : <Mini /> }       
                            </div>        
                 
